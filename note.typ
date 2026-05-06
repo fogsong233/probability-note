@@ -425,3 +425,4 @@ Same, $Pr(X < k)$, let $t < 0$.
 #v(10%)
 #include "chapter/4-Continuous.typ"
 
+
