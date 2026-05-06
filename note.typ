@@ -46,7 +46,6 @@
 
 #include "chapter/1-prob_space.typ"
 #include "chapter/2-rand_var.typ"
-
 #v(10%)
 = Moments and Deviations
 
@@ -422,3 +421,7 @@ $
            = & e^(lambda (e^t - 1) - t k) <=^(f'(t) = 0) e^(-lambda) ((e lambda) / k)^k
 $
 Same, $Pr(X < k)$, let $t < 0$.
+
+#v(10%)
+#include "chapter/4-Continuous.typ"
+
