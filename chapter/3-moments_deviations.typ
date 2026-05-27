@@ -1,52 +1,5 @@
-#import "util.typ": *
-#set page(
-  paper: "a4",
-  margin: (x: 28mm, top: 26mm, bottom: 24mm),
-  fill: paper,
-  footer: context align(center)[
-    #text(font: "Baskerville", size: 9pt, fill: muted)[#counter(page).display("1")]
-  ],
-)
-#set text(
-  font: ("Libertinus Serif", "New Computer Modern Math", "Songti SC", "STZhongsong"),
-  size: 12pt,
-  fill: ink,
-  lang: "en",
-)
-#set par(justify: true, leading: 0.72em)
-#set heading(numbering: none)
+#import "../util.typ": *
 
-#show heading.where(level: 1): it => block(above: 0pt, below: 1.6em)[
-  #text(font: "Cochin", size: 20pt, fill: ink, tracking: 0.04em)[#it.body]
-  #v(0.45em)
-  #line(length: 100%, stroke: (paint: rule, thickness: 0.7pt))
-]
-#set heading(numbering: "1.1")
-
-#show heading.where(level: 2): it => {
-  counter(math.equation).update(0)
-  let h = counter(heading).at(it.location())
-  block(above: 2em, below: 1.25em)[
-    #text(font: "Baskerville", size: 12pt, fill: muted, tracking: 0.08em)[#h.at(0).#h.at(1)]
-    #text(font: "Baskerville", size: 14pt, weight: "semibold", fill: ink, tracking: 0.04em)[#it.body]
-  ]
-}
-
-
-#show math.equation.where(block: true): set math.equation(numbering: eq-numbering)
-
-#text(size: 24pt, weight: "bold", font: "Snell Roundhand")[
-  Probability Theory &  \
-  Mathematical Statistics
-  #text(size: 12pt, font: "Songti TC")[
-    概率论和数理统计
-  ]
-]
-#v(20%)
-
-#include "chapter/1-prob_space.typ"
-#include "chapter/2-rand_var.typ"
-#v(10%)
 = Moments and Deviations
 
 == Markov Inequality
@@ -227,6 +180,122 @@ $
   Var[sum_i X_i] & = sum_i Var[X_i] + sum_(i != j) Cov(X_i, X_j) \
                  & blu(=^("if pairwise independent") sum_i Var[X_i])
 $
+
+== Variances of Basic Distributions
+#panel[Bernoulli Variance][
+  Let $X ~ "Bern"(p)$, so $Pr(X = 1) = p$ and $Pr(X = 0) = 1 - p$.
+  Since $X^2 = X$,
+  $
+    EE[X] = p, quad EE[X^2] = p
+  $
+  Hence
+  $
+    Var[X] = EE[X^2] - EE[X]^2 = p - p^2 = p(1-p)
+  $
+]
+
+#panel[Binomial Variance][
+  Let $X ~ "Bin"(n, p)$ and write
+  $
+    X = X_1 + dots + X_n
+  $
+  where $X_i$ are i.i.d. $"Bern"(p)$. By independence,
+  $
+    Var[X] = sum_(i=1)^n Var[X_i] = sum_(i=1)^n p(1-p) = n p(1-p)
+  $
+]
+
+#panel[Geometric Variance][
+  Let $X ~ "Geo"(p)$ count the number of trials until the first success, and set $q = 1-p$.
+  $
+    EE[X] = sum_(k >= 1) k p q^(k-1) = 1 / p
+  $
+  Use the factorial moment:
+  $
+    EE[X(X-1)] & = sum_(k >= 1) k(k-1) p q^(k-1) \
+               & = p dot (2 q) / (1-q)^3 = (2 q) / p^2
+  $
+  Therefore
+  $
+    EE[X^2] = EE[X(X-1)] + EE[X] = (2q) / p^2 + 1/p = (2-p) / p^2
+  $
+  and
+  $
+    Var[X] = EE[X^2] - EE[X]^2 = (2-p) / p^2 - 1 / p^2 = (1-p) / p^2
+  $
+]
+
+#panel[Negative Binomial Variance][
+  Let $X$ be the number of failures before the $r$-th success. Then
+  $
+    X = (G_1 - 1) + dots + (G_r - 1)
+  $
+  where $G_i$ are i.i.d. $"Geo"(p)$. Constants do not change variance, so
+  $
+    Var[X] = sum_(i=1)^r Var[G_i - 1] = r dot (1-p) / p^2
+  $
+]
+
+#panel[Poisson Variance][
+  Let $X ~ "Pois"(lambda)$. Its first factorial moment is
+  $
+    EE[X] = sum_(k >= 1) k e^(-lambda) lambda^k / k! = lambda
+  $
+  and its second factorial moment is
+  $
+    EE[X(X-1)] & = sum_(k >= 2) k(k-1) e^(-lambda) lambda^k / k! \
+               & = lambda^2 sum_(j >= 0) e^(-lambda) lambda^j / j! = lambda^2
+  $
+  Hence
+  $
+    EE[X^2] = EE[X(X-1)] + EE[X] = lambda^2 + lambda
+  $
+  and
+  $
+    Var[X] = EE[X^2] - EE[X]^2 = lambda
+  $
+]
+
+#panel[Hypergeometric Variance][
+  Let $X$ count successes in $n$ draws without replacement from $N$ objects with $M$ successes. Write
+  $
+    X = I_1 + dots + I_M
+  $
+  where $I_a$ indicates that the $a$-th successful object is selected. Then
+  $
+    EE[I_a] = n/N, quad Var[I_a] = n/N (1 - n/N)
+  $
+  For $a != b$,
+  $
+    EE[I_a I_b] = (n(n-1)) / (N(N-1))
+  $
+  Thus
+  $
+    Cov(I_a, I_b) & = (n(n-1)) / (N(N-1)) - n^2 / N^2 \
+                  & = - (n(N-n)) / (N^2 (N-1))
+  $
+  Therefore
+  $
+    Var[X] & = M dot n/N (1 - n/N) + M(M-1) dot ( - (n(N-n)) / (N^2(N-1)) ) \
+           & = n dot M/N dot (1 - M/N) dot (N-n)/(N-1)
+  $
+]
+
+#panel[Multinomial Variance and Covariance][
+  Let $(X_1, dots, X_m) ~ "Mult"(n; p_1, dots, p_m)$. For fixed $i$,
+  $X_i ~ "Bin"(n, p_i)$, so
+  $
+    Var[X_i] = n p_i(1-p_i)
+  $
+  For $i != j$, write $X_i = sum_(t=1)^n I_(t,i)$ and $X_j = sum_(t=1)^n I_(t,j)$. Different trials are independent, while in the same trial bins $i$ and $j$ cannot both occur:
+  $
+    Cov(I_(t,i), I_(t,j)) = 0 - p_i p_j = -p_i p_j
+  $
+  Hence
+  $
+    Cov(X_i, X_j) = sum_(t=1)^n Cov(I_(t,i), I_(t,j)) = - n p_i p_j
+  $
+]
 
 == Chebyshev's Inequality
 $
@@ -421,9 +490,4 @@ $
            = & e^(lambda (e^t - 1) - t k) <=^(f'(t) = 0) e^(-lambda) ((e lambda) / k)^k
 $
 Same, $Pr(X < k)$, let $t < 0$.
-
-#v(10%)
-#include "chapter/4-Continuous.typ"
-#include "chapter/5-central.typ"
-
 

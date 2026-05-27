@@ -24,6 +24,7 @@
 #let notebox(body) = panel([Observation], body, tint: accent)
 #let defn(concept, body) = panel([Def #text(fill: accent, size: 10pt)[#concept]], body)
 #let theorem(body) = panel([Theorem], body, tint: accent)
+#let theoremof(name, body) = panel([Theorem #name], body, tint: accent)
 #let note(body) = panel([Note], body, tint: accent)
 #let example(body) = panel([Example], body, tint: rgb("8a5a44"))
 #let proofblock(body) = panel([Proof], body, tint: rgb("5e5447"))

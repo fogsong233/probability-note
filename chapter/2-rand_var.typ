@@ -26,7 +26,7 @@ is measurable.
 #defn[CDF][
   The *cumulative distribution function* of $X$ is
   $
-    F_X(x) = Pr(X <= x)
+    F_X (x) = Pr(X <= x)
   $
 ]
 
@@ -37,27 +37,27 @@ $
 
 Basic properties of the CDF:
 $
-  & x <= y => F_X(x) <= F_X(y) \
-  & lim_(x -> -oo) F_X(x) = 0 \
-  & lim_(x -> +oo) F_X(x) = 1
+  & x <= y => F_X (x) <= F_X(y) \
+  & lim_(x -> -oo) F_X (x) = 0 \
+  & lim_(x -> +oo) F_X (x) = 1
 $
 
 == Discrete and Continuous Random Variables
 #defn[discrete random variable][
   $X$ is *discrete* if $X(Omega)$ is countable. Its *probability mass function* is
   $
-    p_X(x) = Pr(X = x)
+    p_X (x) = Pr(X = x)
   $
   and
   $
-    F_X(y) = sum_(x <= y) p_X(x)
+    F_X(y) = sum_(x <= y) p_X (x)
   $
 ]
 
 #defn[continuous random variable][
   $X$ is *continuous* if there exists an integrable density $f_X$ such that
   $
-    F_X(y) = Pr(X <= y) = integral_(-oo)^y f_X(x) dif x
+    F_X(y) = Pr(X <= y) = integral_(-oo)^y f_X (x) dif x
   $
 ]
 
@@ -181,7 +181,7 @@ which is a Bernoulli random variable with parameter $Pr(A)$.
 == Sum of Independent Random Variables
 If discrete random variables $X$ and $Y$ are independent, then
 $
-  p_(X+Y)(z) = sum_x Pr(X = x inter Y = z - x) = sum_x p_X(x) p_Y(z - x)
+  p_(X+Y)(z) = sum_x Pr(X = x inter Y = z - x) = sum_x p_X (x) p_Y(z - x)
 $
 This is the *convolution* of the two mass functions:
 $
@@ -312,7 +312,7 @@ $
 == Definition
 For a discrete random variable $X$, the *expectation* of $X$ is
 $
-  EE[X] = sum_x x p_X(x)
+  EE[X] = sum_x x p_X (x)
 $
 assuming $EX < oo$.
 
@@ -345,7 +345,7 @@ $
 #panel[Law of The Unconscious Statistician, LOTUS][
   For a function $f: RR -> RR$ and a discrete random variable $X$,
   $
-    EE[f(X)] = sum_x f(x) p_X(x)
+    EE[f(X)] = sum_x f(x) p_X (x)
   $
 
   More generally, for a discrete random vector $X = (X_1, dots, X_n)$,
@@ -483,7 +483,7 @@ $
 
 == Applications of Linearity
 #panel[Unsuccessful Search in Open Addressing][
-  #image("/assets/image.png")
+  #image("./assets/image.png")
   *Hash Function* $h: U -> [m]$, $n$ keys from the
   universe $U$ are mapped into $m$ slots.
 

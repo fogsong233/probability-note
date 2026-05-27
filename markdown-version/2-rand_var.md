@@ -25,7 +25,7 @@ $$
 
 $X$ 的累积分布函数定义为
   $$
-F_X(x) = \Pr(X \le x)
+F_X (x) = \Pr(X \le x)
 $$
 
 若随机变量 $X$ 与 $Y$ 满足
@@ -36,9 +36,9 @@ $$
 CDF 的基本性质：
 $$
 \begin{aligned}
-& x \le y \Rightarrow F_X(x) \le F_X(y) \\
-& \lim_{x \to -\infty} F_X(x) = 0 \\
-& \lim_{x \to +\infty} F_X(x) = 1
+& x \le y \Rightarrow F_X (x) \le F_X(y) \\
+& \lim_{x \to -\infty} F_X (x) = 0 \\
+& \lim_{x \to +\infty} F_X (x) = 1
 \end{aligned}
 $$
 
@@ -47,18 +47,18 @@ $$
 
 若 $X(\Omega)$ 可数，则称 $X$ 为离散随机变量。其概率质量函数为
   $$
-p_X(x) = \Pr(X = x)
+p_X (x) = \Pr(X = x)
 $$
   以及
   $$
-F_X(y) = \sum_{x \le y} p_X(x)
+F_X(y) = \sum_{x \le y} p_X (x)
 $$
 
 **定义 连续随机变量**
 
 若存在可积密度函数 $f_X$ 使得
   $$
-F_X(y) = \Pr(X \le y) = \int_{-\infty}^y f_X(x) \, dx
+F_X(y) = \Pr(X \le y) = \int_{-\infty}^y f_X (x) \, dx
 $$
 
 **注**
@@ -182,7 +182,7 @@ $$
 ## 独立随机变量之和
 若离散随机变量 $X$ 与 $Y$ 独立，则
 $$
-p_{X+Y}(z) = \sum_x \Pr(X = x \cap Y = z - x) = \sum_x p_X(x) p_Y(z - x)
+p_{X+Y}(z) = \sum_x \Pr(X = x \cap Y = z - x) = \sum_x p_X (x) p_Y(z - x)
 $$
 这就是两个质量函数的卷积：
 $$
@@ -319,7 +319,7 @@ $$
 ## 定义
 对离散随机变量 $X$，其期望定义为
 $$
-\mathbb{E}[X] = \sum_x x p_X(x)
+\mathbb{E}[X] = \sum_x x p_X (x)
 $$
 这里假设 $\mathbb{E}[X] < \infty$。
 
@@ -354,7 +354,7 @@ $$
 
 对函数 $f: \mathbb{R} \to \mathbb{R}$ 和离散随机变量 $X$，
   $$
-\mathbb{E}[f(X)] = \sum_x f(x) p_X(x)
+\mathbb{E}[f(X)] = \sum_x f(x) p_X (x)
 $$
 
   更一般地，对离散随机向量 $X = (X_1, \dots, X_n)$，

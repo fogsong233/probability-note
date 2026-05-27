@@ -10,7 +10,7 @@
   $
   such that for every $x in RR$,
   $
-    F_X(x) = Pr(X <= x) = integral_(-oo)^x f_X(t) dif t
+    F_X (x) = Pr(X <= x) = integral_(-oo)^x f_X (t) dif t
   $
 
   The function $f_X$ is called a *probability density function* (pdf) of $X$.
@@ -19,7 +19,7 @@
 #note[
   Once $X$ has a density, the CDF $F_X$ is automatically continuous. In particular,
   $
-    Pr(X = x) = F_X(x) - lim_(t -> x^-) F_X(t) = 0
+    Pr(X = x) = F_X (x) - lim_(t -> x^-) F_X (t) = 0
   $
   for every $x in RR$.
 ]
@@ -32,14 +32,14 @@
 
   In that case, if $X$ has density $f_X = f$, then for every $a < b$,
   $
-    Pr(a < X <= b) = integral_a^b f_X(x) dif x
+    Pr(a < X <= b) = integral_a^b f_X (x) dif x
   $
 ]
 
 #proofblock[
-  If $X$ is continuous with density $f_X$, then clearly $f_X(x) >= 0$ and
+  If $X$ is continuous with density $f_X$, then clearly $f_X (x) >= 0$ and
   $
-    integral_(-oo)^oo f_X(x) dif x = lim_(b -> oo) F_X(b) - lim_(a -> -oo) F_X(a) = 1
+    integral_(-oo)^oo f_X (x) dif x = lim_(b -> oo) F_X(b) - lim_(a -> -oo) F_X(a) = 1
   $
 
   Conversely, if $f >= 0$ and $integral_(-oo)^oo f(x) dif x = 1$, define
@@ -54,7 +54,7 @@
 
   For the interval formula,
   $
-    Pr(a < X <= b) = F_X(b) - F_X(a) = integral_a^b f_X(x) dif x
+    Pr(a < X <= b) = F_X(b) - F_X(a) = integral_a^b f_X (x) dif x
   $
 ]
 
@@ -63,7 +63,7 @@
 
   If $F_X$ happens to be differentiable, one usually chooses
   $
-    f_X(x) = F'_X(x)
+    f_X (x) = F'_X (x)
   $
 ]
 
@@ -80,22 +80,22 @@
 
   For the corresponding random variable $X$,
   $
-    F_X(x) = 0 quad "for" x < 0
+    F_X (x) = 0 quad "for" x < 0
   $
   $
-    F_X(x) = integral_0^x 3 t^2 dif t = x^3 quad "for" 0 <= x <= 1
+    F_X (x) = integral_0^x 3 t^2 dif t = x^3 quad "for" 0 <= x <= 1
   $
   and
   $
-    F_X(x) = 1 quad "for" x > 1
+    F_X (x) = 1 quad "for" x > 1
   $
 ]
 
 == Density and Integration
 #panel([Probability Density Function], [
-  For a continuous random variable, the density value $f_X(x)$ is *not* itself a probability. What is meaningful is the probability of a short interval:
+  For a continuous random variable, the density value $f_X (x)$ is *not* itself a probability. What is meaningful is the probability of a short interval:
   $
-    Pr(x < X <= x + h) = integral_x^(x+h) f_X(t) dif t approx f_X(x) h
+    Pr(x < X <= x + h) = integral_x^(x+h) f_X (t) dif t approx f_X (x) h
   $
   when $h$ is small.
 
@@ -187,63 +187,63 @@
 == Marginal Distribution
 If $(X, Y)$ has joint density $f_(X,Y)$, then the marginals are obtained by integrating out the other coordinate:
 $
-  f_X(x) = integral_(-oo)^oo f_(X,Y)(x, y) dif y
+  f_X (x) = integral_(-oo)^oo f_(X,Y)(x, y) dif y
 $
 $
-  f_Y(y) = integral_(-oo)^oo f_(X,Y)(x, y) dif x
+  f_Y (y) = integral_(-oo)^oo f_(X,Y)(x, y) dif x
 $
 
 Similarly,
 $
-  F_X(x) = F_(X,Y)(x, oo), quad F_Y(y) = F_(X,Y)(oo, y)
+  F_X (x) = F_(X,Y)(x, oo), quad F_Y (y) = F_(X,Y)(oo, y)
 $
 
 #proofblock[
   For example,
   $
-    F_X(x) = Pr(X <= x) = Pr(X <= x and Y in RR)
+    F_X (x) = Pr(X <= x) = Pr(X <= x and Y in RR)
   $
   so
   $
-    F_X(x) = integral_(-oo)^oo integral_(-oo)^x f_(X,Y)(u, y) dif u dif y
+    F_X (x) = integral_(-oo)^oo integral_(-oo)^x f_(X,Y)(u, y) dif u dif y
   $
   Differentiating with respect to $x$ gives
   $
-    f_X(x) = integral_(-oo)^oo f_(X,Y)(x, y) dif y
+    f_X (x) = integral_(-oo)^oo f_(X,Y)(x, y) dif y
   $
 ]
 
 == Independence
 Two random variables $X$ and $Y$ are independent iff for all $x, y in RR$,
 $
-  F_(X,Y)(x, y) = F_X(x) F_Y(y)
+  F_(X,Y)(x, y) = F_X (x) F_Y (y)
 $
 
 If $X$ and $Y$ are jointly continuous, this is equivalent to
 $
-  f_(X,Y)(x, y) = f_X(x) f_Y(y)
+  f_(X,Y)(x, y) = f_X (x) f_Y (y)
 $
 for all $x, y$.
 
 #proofblock[
   If
   $
-    f_(X,Y)(x, y) = f_X(x) f_Y(y)
+    f_(X,Y)(x, y) = f_X (x) f_Y (y)
   $
   then
   $
     F_(X,Y)(x, y)
     = integral_(-oo)^y integral_(-oo)^x f_X(u) f_Y(v) dif u dif v
-    = F_X(x) F_Y(y)
+    = F_X (x) F_Y (y)
   $
 
   Conversely, if
   $
-    F_(X,Y)(x, y) = F_X(x) F_Y(y)
+    F_(X,Y)(x, y) = F_X (x) F_Y (y)
   $
   and the functions are differentiable enough, differentiating in $x$ and $y$ yields
   $
-    f_(X,Y)(x, y) = f_X(x) f_Y(y)
+    f_(X,Y)(x, y) = f_X (x) f_Y (y)
   $
 ]
 
@@ -267,7 +267,7 @@ for all $x, y$.
 #panel([Law of Total Probability for Densities], [
   If $B_1, dots, B_n$ is a partition of $Omega$ and each $Pr(B_i) > 0$, then
   $
-    f_X(x) = sum_(i=1)^n Pr(B_i) f_(X|B_i)(x)
+    f_X (x) = sum_(i=1)^n Pr(B_i) f_(X|B_i)(x)
   $
 
   Proof. For each $x$,
@@ -278,18 +278,18 @@ for all $x, y$.
 ])
 
 #defn[conditional density given a random variable][
-  Suppose $(X, Y)$ is jointly continuous. For every $y$ with $f_Y(y) > 0$, define
+  Suppose $(X, Y)$ is jointly continuous. For every $y$ with $f_Y (y) > 0$, define
   $
     F_(X|Y)(x | y) = Pr(X <= x | Y = y)
   $
   by
   $
-    F_(X|Y)(x | y) = integral_(-oo)^x (f_(X,Y)(u, y)) / (f_Y(y)) dif u
+    F_(X|Y)(x | y) = integral_(-oo)^x (f_(X,Y)(u, y)) / (f_Y (y)) dif u
   $
 
   Hence the conditional density is
   $
-    f_(X|Y)(x | y) = (f_(X,Y)(x, y)) / (f_Y(y))
+    f_(X|Y)(x | y) = (f_(X,Y)(x, y)) / (f_Y (y))
   $
 ]
 
@@ -307,24 +307,24 @@ for all $x, y$.
   $
   while
   $
-    Pr(y < Y <= y + dif y) approx f_Y(y) dif y
+    Pr(y < Y <= y + dif y) approx f_Y (y) dif y
   $
 
   Cancelling the common factor $dif y$ gives
   $
-    F_(X|Y)(x | y) = integral_(-oo)^x (f_(X,Y)(u, y)) / (f_Y(y)) dif u
+    F_(X|Y)(x | y) = integral_(-oo)^x (f_(X,Y)(u, y)) / (f_Y (y)) dif u
   $
 ]
 
 #panel([Law of Total Probability Given a Continuous Variable], [
   Let $B subset.eq RR$ be a Borel set. Then
   $
-    Pr(X in B) = integral_(-oo)^oo Pr(X in B | Y = y) f_Y(y) dif y
+    Pr(X in B) = integral_(-oo)^oo Pr(X in B | Y = y) f_Y (y) dif y
   $
 
   In density form, this is just
   $
-    f_X(x) = integral_(-oo)^oo f_(X|Y)(x | y) f_Y(y) dif y
+    f_X (x) = integral_(-oo)^oo f_(X|Y)(x | y) f_Y (y) dif y
   $
 ])
 
@@ -332,20 +332,20 @@ for all $x, y$.
 #defn[expectation][
   Let $X$ be a continuous random variable with density $f_X$. Its expectation is
   $
-    EE[X] = integral_(-oo)^oo x f_X(x) dif x = integral_(-oo)^oo x dif F_X(x)
+    EE[X] = integral_(-oo)^oo x f_X (x) dif x = integral_(-oo)^oo x dif F_X (x)
   $
   whenever the integral exists absolutely.
 
   More generally, the $k$-th moment is
   $
-    EE[X^k] = integral_(-oo)^oo x^k f_X(x) dif x
+    EE[X^k] = integral_(-oo)^oo x^k f_X (x) dif x
   $
 ]
 
 #note[
   The integral notation
   $
-    integral_(-oo)^oo x dif F_X(x)
+    integral_(-oo)^oo x dif F_X (x)
   $
   is the Stieltjes form. For continuous random variables this agrees with the usual density formula.
 ]
@@ -354,23 +354,23 @@ for all $x, y$.
 #theorem[
   If $X >= 0$ almost surely, then
   $
-    EE[X] = integral_0^oo Pr(X > x) dif x = integral_0^oo (1 - F_X(x)) dif x
+    EE[X] = integral_0^oo Pr(X > x) dif x = integral_0^oo (1 - F_X (x)) dif x
   $
 ]
 
 #proofblock[
   Since $X >= 0$,
   $
-    EE[X] = integral_0^oo x f_X(x) dif x
+    EE[X] = integral_0^oo x f_X (x) dif x
   $
   and
   $
-    1 - F_X(x) = integral_x^oo f_X(u) dif u
+    1 - F_X (x) = integral_x^oo f_X(u) dif u
   $
 
   Therefore
   $
-    integral_0^oo (1 - F_X(x)) dif x
+    integral_0^oo (1 - F_X (x)) dif x
     = integral_0^oo integral_x^oo f_X(u) dif u dif x
   $
 
@@ -390,7 +390,7 @@ for all $x, y$.
 #panel([Law of the Unconscious Statistician], [
   If $X$ is continuous and $g(X)$ is integrable, then
   $
-    EE[g(X)] = integral_(-oo)^oo g(x) f_X(x) dif x
+    EE[g(X)] = integral_(-oo)^oo g(x) f_X (x) dif x
   $
 ])
 
@@ -406,14 +406,14 @@ for all $x, y$.
   $
   Then
   $
-    Pr(g(X) > y) = integral_(B_y) f_X(x) dif x
+    Pr(g(X) > y) = integral_(B_y) f_X (x) dif x
   $
   so
   $
     EE[g(X)]
-    = integral_0^oo integral_(B_y) f_X(x) dif x dif y
-    = integral_(-oo)^oo f_X(x) integral_0^(g(x)) dif y dif x
-    = integral_(-oo)^oo g(x) f_X(x) dif x
+    = integral_0^oo integral_(B_y) f_X (x) dif x dif y
+    = integral_(-oo)^oo f_X (x) integral_0^(g(x)) dif y dif x
+    = integral_(-oo)^oo g(x) f_X (x) dif x
   $
 
   For a general $g$, write
@@ -436,8 +436,8 @@ $
   The first identity is immediate:
   $
     EE[a X + b]
-    = integral_(-oo)^oo (a x + b) f_X(x) dif x
-    = a integral_(-oo)^oo x f_X(x) dif x + b integral_(-oo)^oo f_X(x) dif x
+    = integral_(-oo)^oo (a x + b) f_X (x) dif x
+    = a integral_(-oo)^oo x f_X (x) dif x + b integral_(-oo)^oo f_X (x) dif x
     = a EE[X] + b
   $
 
@@ -448,7 +448,7 @@ $
   $
   $
     = integral_(-oo)^oo integral_(-oo)^oo x f_(X,Y)(x, y) dif x dif y
-      + integral_(-oo)^oo integral_(-oo)^oo y f_(X,Y)(x, y) dif x dif y
+    + integral_(-oo)^oo integral_(-oo)^oo y f_(X,Y)(x, y) dif x dif y
     = EE[X] + EE[Y]
   $
 ]
@@ -481,7 +481,7 @@ $
 
   If $(X, Y)$ is jointly continuous, then
   $
-    EE[X] = integral_(-oo)^oo EE[X | Y = y] f_Y(y) dif y
+    EE[X] = integral_(-oo)^oo EE[X | Y = y] f_Y (y) dif y
   $
   and equivalently
   $
@@ -498,16 +498,16 @@ $
 #proofblock[
   Independence gives
   $
-    f_(X,Y)(x, y) = f_X(x) f_Y(y)
+    f_(X,Y)(x, y) = f_X (x) f_Y (y)
   $
   therefore
   $
     EE[X Y]
     = integral_(-oo)^oo integral_(-oo)^oo x y f_(X,Y)(x, y) dif x dif y
-    = integral_(-oo)^oo integral_(-oo)^oo x y f_X(x) f_Y(y) dif x dif y
+    = integral_(-oo)^oo integral_(-oo)^oo x y f_X (x) f_Y (y) dif x dif y
   $
   $
-    = integral_(-oo)^oo x f_X(x) dif x dot integral_(-oo)^oo y f_Y(y) dif y
+    = integral_(-oo)^oo x f_X (x) dif x dot integral_(-oo)^oo y f_Y (y) dif y
     = EE[X] EE[Y]
   $
 ]
@@ -529,21 +529,21 @@ $
 #defn[uniform distribution][
   The random variable $X$ is *uniform on* $[a, b]$ with $a < b$ if it has density
   $
-    f_X(x) = 1 / (b - a) quad "for" a <= x <= b
+    f_X (x) = 1 / (b - a) quad "for" a <= x <= b
   $
   $
-    f_X(x) = 0 quad "for" x < a "or" x > b
+    f_X (x) = 0 quad "for" x < a "or" x > b
   $
 
   Its CDF is
   $
-    F_X(x) = 0 quad "if" x < a
+    F_X (x) = 0 quad "if" x < a
   $
   $
-    F_X(x) = (x - a) / (b - a) quad "if" a <= x <= b
+    F_X (x) = (x - a) / (b - a) quad "if" a <= x <= b
   $
   $
-    F_X(x) = 1 quad "if" x > b
+    F_X (x) = 1 quad "if" x > b
   $
 ]
 
@@ -607,23 +607,23 @@ $
 
   If $g$ is strictly increasing, then
   $
-    F_Y(y) = Pr(Y <= y) = Pr(g(X) <= y) = Pr(X <= g^(-1)(y)) = F_X(g^(-1)(y))
+    F_Y (y) = Pr(Y <= y) = Pr(g(X) <= y) = Pr(X <= g^(-1)(y)) = F_X(g^(-1)(y))
   $
   Hence
   $
-    f_Y(y) = f_X(g^(-1)(y)) (dif g^(-1)(y)) / (dif y)
+    f_Y (y) = f_X(g^(-1)(y)) (dif g^(-1)(y)) / (dif y)
   $
 
   If $g$ is strictly decreasing, the same computation gives the absolute-value form
   $
-    f_Y(y) = f_X(g^(-1)(y)) abs((dif g^(-1)(y)) / (dif y))
+    f_Y (y) = f_X(g^(-1)(y)) abs((dif g^(-1)(y)) / (dif y))
   $
 ])
 
 #example[
   If $X$ is continuous and $Y = a X + b$ with $a != 0$, then
   $
-    f_Y(y) = 1 / abs(a) f_X((y - b) / a)
+    f_Y (y) = 1 / abs(a) f_X((y - b) / a)
   $
 
   In particular, scaling stretches the density by the reciprocal factor $1 / abs(a)$.
@@ -666,7 +666,7 @@ $
 #defn[stochastic domination][
   Suppose $X$ and $Y$ are real-valued random variables. We say that $X$ *stochastically dominates* $Y$ if
   $
-    F_X(t) <= F_Y(t) quad "for all" t in RR
+    F_X (t) <= F_Y (t) quad "for all" t in RR
   $
 ]
 
@@ -676,10 +676,10 @@ $
   1. $X$ stochastically dominates $Y$.
 
   2. There exists a coupling $(tilde X, tilde Y)$ with marginals distributed as $X$ and $Y$ respectively such that
-     $
-       tilde X >= tilde Y
-     $
-     almost surely.
+    $
+      tilde X >= tilde Y
+    $
+    almost surely.
 ]
 
 #proofblock[
@@ -689,7 +689,7 @@ $
   $
   for every $t$, hence
   $
-    F_X(t) = Pr(tilde X <= t) <= Pr(tilde Y <= t) = F_Y(t)
+    F_X (t) = Pr(tilde X <= t) <= Pr(tilde Y <= t) = F_Y (t)
   $
 
   For $1 => 2$, let $U$ be uniform on $[0, 1]$ and define
@@ -698,7 +698,7 @@ $
   $
   By inverse transform sampling, these have the correct marginals.
 
-  Because $F_X(t) <= F_Y(t)$ for all $t$, the quantile function of $X$ lies above that of $Y$, hence
+  Because $F_X (t) <= F_Y (t)$ for all $t$, the quantile function of $X$ lies above that of $Y$, hence
   $
     tilde X >= tilde Y
   $
@@ -717,18 +717,18 @@ $
   $
   if its density is
   $
-    f_X(x) = lambda exp(-lambda x) quad "for" x >= 0
+    f_X (x) = lambda exp(-lambda x) quad "for" x >= 0
   $
   $
-    f_X(x) = 0 quad "for" x < 0
+    f_X (x) = 0 quad "for" x < 0
   $
 
   Its CDF is
   $
-    F_X(x) = 0 quad "for" x < 0
+    F_X (x) = 0 quad "for" x < 0
   $
   $
-    F_X(x) = 1 - exp(-lambda x) quad "for" x >= 0
+    F_X (x) = 1 - exp(-lambda x) quad "for" x >= 0
   $
 ]
 
@@ -836,14 +836,14 @@ $
   defined by the picture of a random clock:
 
   1. $N(t)$ counts how many times the clock has rung by time $t$, with
-     $
-       N(0) = 0
-     $
+    $
+      N(0) = 0
+    $
 
   2. The interarrival times between consecutive rings, including the waiting time before the first ring, are i.i.d.
-     $
-       "Exp"(lambda)
-     $
+    $
+      "Exp"(lambda)
+    $
 ])
 
 #note[
@@ -929,7 +929,7 @@ $
   $
   if
   $
-    f_X(x) = 1 / (sqrt(2 pi) sigma) exp(-(x - mu)^2 / (2 sigma^2)), quad -oo < x < oo
+    f_X (x) = 1 / (sqrt(2 pi) sigma) exp(-(x - mu)^2 / (2 sigma^2)), quad -oo < x < oo
   $
 ]
 
@@ -1043,17 +1043,17 @@ $
   $
   Since $y = a x + b$ is monotone, the change-of-variable formula gives
   $
-    f_Y(y) = 1 / abs(a) f_X((y - b) / a)
+    f_Y (y) = 1 / abs(a) f_X((y - b) / a)
   $
   Hence
   $
-    f_Y(y)
+    f_Y (y)
     = 1 / (sqrt(2 pi) abs(a) sigma)
-      exp(-(((y - b) / a) - mu)^2 / (2 sigma^2))
+    exp(-(((y - b) / a) - mu)^2 / (2 sigma^2))
   $
   $
     = 1 / (sqrt(2 pi) sqrt(a^2 sigma^2))
-      exp(-(y - (a mu + b))^2 / (2 a^2 sigma^2))
+    exp(-(y - (a mu + b))^2 / (2 a^2 sigma^2))
   $
   which is exactly the density of
   $
@@ -1076,7 +1076,7 @@ $
 #panel([Convolution], [
   For continuous independent random variables $X$ and $Y$,
   $
-    f_(X+Y)(z) = integral_(-oo)^oo f_X(x) f_Y(z - x) dif x
+    f_(X+Y)(z) = integral_(-oo)^oo f_X (x) f_Y(z - x) dif x
   $
   This is the continuous analogue of convolution from the discrete case.
 ])
@@ -1106,7 +1106,7 @@ $
 #defn[moment generating function][
   The *moment generating function* of a random variable $X$ is
   $
-    M_X(t) = EE[exp(t X)]
+    M_X (t) = EE[exp(t X)]
   $
   whenever this expectation is finite.
 ]
@@ -1114,7 +1114,7 @@ $
 #note[
   Expanding $exp(t X)$ into its Maclaurin series suggests
   $
-    M_X(t) = sum_(k >= 0) EE[X^k] t^k / k!
+    M_X (t) = sum_(k >= 0) EE[X^k] t^k / k!
   $
   so the moments are recovered by differentiation:
   $
@@ -1159,7 +1159,7 @@ $
   $
   then
   $
-    M_X(t) = exp(mu t + sigma^2 t^2 / 2)
+    M_X (t) = exp(mu t + sigma^2 t^2 / 2)
   $
 ])
 
@@ -1170,20 +1170,20 @@ $
   $
   with $Z ~ "N"(0, 1)$. Then
   $
-    M_X(t) = EE[exp(t(sigma Z + mu))]
+    M_X (t) = EE[exp(t(sigma Z + mu))]
     = exp(mu t) EE[exp((sigma t) Z)]
     = exp(mu t) M_Z(sigma t)
   $
   Hence
   $
-    M_X(t) = exp(mu t) exp(sigma^2 t^2 / 2) = exp(mu t + sigma^2 t^2 / 2)
+    M_X (t) = exp(mu t) exp(sigma^2 t^2 / 2) = exp(mu t + sigma^2 t^2 / 2)
   $
 ]
 
 #proofblock[
   This also gives another proof of closure under independent sums. If $X$ and $Y$ are independent normals, then
   $
-    M_(X+Y)(t) = M_X(t) M_Y(t)
+    M_(X+Y)(t) = M_X (t) M_Y (t)
   $
   $
     = exp((mu + nu)t + (sigma^2 + tau^2)t^2 / 2)
@@ -1237,4 +1237,367 @@ $
 
 #note[
   Numerically this is weaker than the empirical $68$-$95$-$99.7$ rule, but it is much sharper than Chebyshev's inequality and has the advantage of being a clean closed-form bound.
+]
+
+== Bivariate Normal Distribution
+#defn[standard bivariate normal][
+  A pair $(X, Y)$ has the *standard bivariate normal distribution* with correlation parameter $-1 < rho < 1$ if its joint density is
+  $
+    f_(X,Y)(x, y)
+    = 1 / (2 pi sqrt(1 - rho^2))
+      exp(-(x^2 - 2 rho x y + y^2) / (2(1 - rho^2)))
+  $
+  for $x, y in RR$.
+]
+
+#panel([Marginals and Correlation], [
+  Under this density,
+  $
+    X ~ "N"(0, 1), quad Y ~ "N"(0, 1)
+  $
+  and
+  $
+    Cov(X, Y) = EE[X Y] - EE[X] EE[Y] = EE[X Y] = rho
+  $
+
+  If $rho = 0$, then
+  $
+    f_(X,Y)(x, y) = phi(x) phi(y)
+  $
+  so $X$ and $Y$ are independent.
+])
+
+#note[
+  For bivariate normal variables, being uncorrelated is the same as being independent. This is a special property of the normal family; it is false for general random variables.
+]
+
+#defn[general bivariate normal][
+  A pair $(X, Y)$ has a bivariate normal distribution with means $mu_1, mu_2$, variances $sigma_1^2, sigma_2^2$, and correlation $rho$ if
+  $
+    f_(X,Y)(x, y)
+    = 1 / (2 pi sigma_1 sigma_2 sqrt(1 - rho^2)) exp(-Q(x, y) / 2)
+  $
+  where
+  $
+    Q(x, y)
+    = 1 / (1 - rho^2) [
+      ((x - mu_1) / sigma_1)^2
+      - 2 rho ((x - mu_1) / sigma_1) ((y - mu_2) / sigma_2)
+      + ((y - mu_2) / sigma_2)^2
+    ]
+  $
+]
+
+#note[
+  Marginally,
+  $
+    X ~ "N"(mu_1, sigma_1^2), quad Y ~ "N"(mu_2, sigma_2^2)
+  $
+  and
+  $
+    Cov(X, Y) = sigma_1 sigma_2 rho
+  $
+]
+
+== Multivariate Normal Distribution
+#defn[multivariate normal][
+  A random vector $Y = (Y_1, dots, Y_n)$ has a *multivariate normal distribution* if there are independent standard normal variables
+  $
+    X_1, dots, X_k
+  $
+  together with a matrix $A in RR^(n times k)$ and a vector $mu in RR^n$ such that
+  $
+    Y = A X + mu
+  $
+  where $X = (X_1, dots, X_k)$.
+]
+
+#panel([Density Form], [
+  If
+  $
+    Sigma = A A^T
+  $
+  has full rank, then $Y$ has density
+  $
+    f_Y(y)
+    = 1 / ((2 pi)^(n / 2) sqrt(det(Sigma)))
+      exp(-1 / 2 (y - mu)^T Sigma^(-1) (y - mu))
+  $
+  We write
+  $
+    Y ~ "N"(mu, Sigma)
+  $
+])
+
+#note[
+  In this notation,
+  $
+    Y_i ~ "N"(mu_i, Sigma_(i,i)), quad Cov(Y_i, Y_j) = Sigma_(i,j)
+  $
+  An equivalent characterization is that every linear combination
+  $
+    a_1 Y_1 + dots + a_n Y_n
+  $
+  is normally distributed.
+]
+
+== Chi-Squared Distribution
+#defn[chi-squared distribution][
+  If $Z_1, dots, Z_k$ are independent standard normal random variables, then
+  $
+    Q = sum_(i=1)^k Z_i^2
+  $
+  has the *chi-squared distribution* with $k$ degrees of freedom, written
+  $
+    Q ~ chi^2(k)
+  $
+]
+
+#panel([Basic Properties], [
+  Since
+  $
+    EE[Z_i^2] = Var(Z_i) = 1
+  $
+  we have
+  $
+    EE[Q] = k
+  $
+
+  Also, if $U ~ chi^2(k)$ and $V ~ chi^2(l)$ are independent, then
+  $
+    U + V ~ chi^2(k + l)
+  $
+])
+
+#example[
+  Let $Z ~ "N"(0, 1)$ and $Y = Z^2$. For $y >= 0$,
+  $
+    F_Y (y) = Pr(Z^2 <= y)
+    = Pr(-sqrt(y) <= Z <= sqrt(y))
+    = 2 Phi(sqrt(y)) - 1
+  $
+  Differentiating gives
+  $
+    f_Y (y) = 1 / sqrt(2 pi y) exp(-y / 2)
+  $
+  which is the density of $chi^2(1)$.
+]
+
+#theorem[
+  For integer $k >= 1$, the density of $chi^2(k)$ is
+  $
+    f(x)
+    = 1 / (2^(k / 2) Gamma(k / 2)) x^(k / 2 - 1) exp(-x / 2),
+    quad x >= 0
+  $
+  and $f(x) = 0$ for $x < 0$.
+]
+
+== Gamma Function and Gamma Distribution
+#defn[gamma function][
+  The *gamma function* extends the factorial by
+  $
+    Gamma(z) = integral_0^oo t^(z - 1) exp(-t) dif t
+  $
+  for $z > 0$. In particular,
+  $
+    Gamma(n) = (n - 1)!
+  $
+  for every positive integer $n$.
+]
+
+#defn[gamma distribution][
+  A random variable $X$ has the *gamma distribution* with shape $k > 0$ and rate $lambda > 0$, written
+  $
+    X ~ "Gamma"(k, lambda)
+  $
+  if its density is
+  $
+    f_X (x)
+    = lambda^k / Gamma(k) x^(k - 1) exp(-lambda x),
+    quad x >= 0
+  $
+  and $f_X (x) = 0$ for $x < 0$.
+]
+
+#note[
+  The exponential distribution is the special case
+  $
+    "Gamma"(1, lambda) = "Exp"(lambda)
+  $
+  and the chi-squared distribution is
+  $
+    chi^2(k) = "Gamma"(k / 2, 1 / 2)
+  $
+  for integer $k >= 1$.
+]
+
+#panel([MGF of the Gamma Law], [
+  If $X ~ "Gamma"(k, lambda)$, then for $t < lambda$,
+  $
+    M_X (t) = EE[exp(t X)] = (1 - t / lambda)^(-k)
+  $
+])
+
+#proofblock[
+  Directly,
+  $
+    M_X (t)
+    = integral_0^oo exp(t x) lambda^k / Gamma(k) x^(k - 1) exp(-lambda x) dif x
+  $
+  $
+    = lambda^k / Gamma(k) integral_0^oo x^(k - 1) exp(-(lambda - t)x) dif x
+  $
+  Substitute $u = (lambda - t)x$. Then
+  $
+    M_X (t)
+    = lambda^k / (lambda - t)^k dot
+      1 / Gamma(k) integral_0^oo u^(k - 1) exp(-u) dif u
+    = (1 - t / lambda)^(-k)
+  $
+]
+
+#theorem[
+  If $X ~ "Gamma"(alpha, lambda)$ and $Y ~ "Gamma"(beta, lambda)$ are independent, then
+  $
+    X + Y ~ "Gamma"(alpha + beta, lambda)
+  $
+]
+
+#proofblock[
+  By independence,
+  $
+    M_(X+Y) (t) = M_X (t) M_Y (t)
+  $
+  for $t < lambda$. Using the gamma MGF,
+  $
+    M_(X+Y) (t)
+    = (1 - t / lambda)^(-alpha) (1 - t / lambda)^(-beta)
+    = (1 - t / lambda)^(-(alpha + beta))
+  $
+  This is the MGF of $"Gamma"(alpha + beta, lambda)$.
+]
+
+#coroll[
+  If $X_1, dots, X_k$ are i.i.d. $"Exp"(lambda)$, then
+  $
+    sum_(i=1)^k X_i ~ "Gamma"(k, lambda)
+  $
+]
+
+== Poisson Process from Interarrival Times
+#panel([Gamma Waiting Times], [
+  Let $X_1, X_2, dots$ be the interarrival times of a Poisson process with rate $lambda$, so the $X_i$ are i.i.d. $"Exp"(lambda)$. The time of the $n$-th ring is
+  $
+    S_n = sum_(i=1)^n X_i ~ "Gamma"(n, lambda)
+  $
+])
+
+#theorem[
+  For a Poisson process with rate $lambda$,
+  $
+    Pr(N(t) = n) = exp(-lambda t) (lambda t)^n / n!
+  $
+  for every integer $n >= 0$.
+]
+
+#proofblock[
+  For $n = 0$,
+  $
+    Pr(N(t) = 0) = Pr(X_1 > t) = exp(-lambda t)
+  $
+
+  For $n >= 1$, the event $N(t) = n$ means
+  $
+    S_n <= t < S_n + X_(n+1)
+  $
+  Hence
+  $
+    Pr(N(t) = n)
+    = integral_0^t f_(S_n)(x) Pr(X_(n+1) > t - x) dif x
+  $
+  Using $S_n ~ "Gamma"(n, lambda)$ and the exponential tail,
+  $
+    = integral_0^t lambda^n / (n - 1)! x^(n - 1) exp(-lambda x)
+      exp(-lambda(t - x)) dif x
+  $
+  $
+    = exp(-lambda t) lambda^n / (n - 1)! integral_0^t x^(n - 1) dif x
+    = exp(-lambda t) (lambda t)^n / n!
+  $
+]
+
+== Beta Distribution
+#defn[beta distribution][
+  A random variable $X$ has the *beta distribution* with parameters $a, b > 0$, written
+  $
+    X ~ "Beta"(a, b)
+  $
+  if its density is
+  $
+    f_X (x) = 1 / B(a, b) x^(a - 1) (1 - x)^(b - 1),
+    quad 0 <= x <= 1
+  $
+  and $f_X (x) = 0$ outside $[0, 1]$.
+
+  where
+  $
+    B(a, b)
+    = integral_0^1 x^(a - 1) (1 - x)^(b - 1) dif x
+    = (Gamma(a) Gamma(b)) / Gamma(a + b)
+  $
+]
+
+#note[
+  The uniform distribution on $[0, 1]$ is
+  $
+    "Beta"(1, 1)
+  $
+  If $U_1, dots, U_n$ are i.i.d. uniform on $[0, 1]$, then
+  $
+    min(U_1, dots, U_n) ~ "Beta"(1, n)
+  $
+]
+
+#panel([Gamma-Beta Connection], [
+  If $X ~ "Gamma"(alpha, lambda)$ and $Y ~ "Gamma"(beta, lambda)$ are independent, then
+  $
+    X / (X + Y) ~ "Beta"(alpha, beta)
+  $
+])
+
+#proofblock[
+  Use the change of variables
+  $
+    R = X / (X + Y), quad S = X + Y
+  $
+  so that
+  $
+    X = R S, quad Y = (1 - R)S
+  $
+  with Jacobian $S$. The joint density of $(R, S)$ is proportional to
+  $
+    (r s)^(alpha - 1) ((1 - r)s)^(beta - 1) exp(-lambda s) s
+  $
+  which factors as
+  $
+    r^(alpha - 1) (1 - r)^(beta - 1) dot s^(alpha + beta - 1) exp(-lambda s)
+  $
+  Thus the marginal density of $R$ is beta with parameters $alpha, beta$.
+]
+
+== Cauchy Distribution
+#defn[Cauchy distribution][
+  A random variable $X$ has the *Cauchy distribution* if its density is
+  $
+    f_X (x) = 1 / (pi(1 + x^2)), quad -oo < x < oo
+  $
+]
+
+#note[
+  The Cauchy distribution has heavy tails. For every $k >= 1$,
+  $
+    EE[abs(X)^k] = oo
+  $
+  so the mean, variance, and higher moments are not finite. Its moment generating function does not exist for any nonzero $t$.
 ]
